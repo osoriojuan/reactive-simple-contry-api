@@ -1,4 +1,6 @@
-package cl.juan.infrastructure.adapter.outbound.rest.country.dto;
+package cl.juan.infrastructure.adapter.outbound.rest.country.dto.output;
+
+import cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.details.*;
 
 import java.util.ArrayList;
 
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 /* ObjectMapper om = new ObjectMapper();
 Root root = om.readValue(myJsonString, Root.class); */
 
-public class Country{
+public class Country {
     public Name name;
     public ArrayList<String> tld;
     public String cca2;
