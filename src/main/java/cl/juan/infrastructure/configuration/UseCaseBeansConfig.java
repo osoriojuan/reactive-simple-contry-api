@@ -5,7 +5,7 @@ import cl.juan.domain.country.usecase.CountryCodesGetter;
 
 import javax.enterprise.context.ApplicationScoped;
 
-public class UseCaseDependencyInjectionConfig {
+public class UseCaseBeansConfig {
 
     @ApplicationScoped
     public CountryCodesGetterUseCase countryCodesGetterUseCase() {
