@@ -1,16 +1,17 @@
 package cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.details;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.ArrayList;
 
-@Getter
 @Setter
-@AllArgsConstructor
-@RegisterForReflection
+@Getter
+@ToString
+@NoArgsConstructor
 public class Idd {
     private String root;
     private ArrayList<String> suffixes;

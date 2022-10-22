@@ -24,9 +24,9 @@ public class CountryClientResolver implements CountryCodesGetterPort, CountryGet
     }
 
     @Override
-    public Uni<List<CountryDto>> getCountryByName(String name) {
+    public Uni<List<CountryDto>> getFirstCountryByName(String name) {
         Log.info("Getting countryByName");
-        return countryClient.getByName(name);
+        return countryClient.getCountriesByName(name);
     }
 
 }

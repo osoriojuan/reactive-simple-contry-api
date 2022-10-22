@@ -1,16 +1,20 @@
 package cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.details;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import cl.juan.domain.country.model.details.Currency;
 import io.quarkus.runtime.annotations.RegisterForReflection;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter
+import java.util.List;
+import java.util.Map;
+
 @Setter
-@AllArgsConstructor
-@RegisterForReflection
+@Getter
+@ToString
+@NoArgsConstructor
 public class Currencies {
-    @JsonProperty("CLP")
-    private CLP cLP;
+    //TODO:  map this variable key
+    private Map<String, List<Currency>> currency;
 }

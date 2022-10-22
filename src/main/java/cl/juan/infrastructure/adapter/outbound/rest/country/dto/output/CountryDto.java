@@ -6,12 +6,10 @@ import lombok.*;
 
 import java.util.ArrayList;
 
-@Builder
-@AllArgsConstructor
-@Getter
 @Setter
-@RegisterForReflection
+@Getter
 @ToString
+@Builder
 public class CountryDto {
     private Name name;
     private ArrayList<String> tld;
@@ -46,4 +44,5 @@ public class CountryDto {
     private String startOfWeek;
     private CapitalInfo capitalInfo;
     private PostalCode postalCode;
+
 }

@@ -40,9 +40,9 @@ public class CountryController {
     @Path("get-by-name")
     public Uni<RestResponse<List<CountryDto>>> getByName(@QueryParam("name") @DefaultValue("") String name) throws ExecutionException, InterruptedException {
         Log.info("Getting country by name controller...");
-
-        return countryClientResolver.getCountryByName(name)
-                .map(country -> RestResponse.ResponseBuilder.ok(country)
+        return countryClientResolver.getFirstCountryByName(name)
+                .map(dto -> RestResponse.ResponseBuilder.ok(dto)
                         .build());
+
     }
 }
