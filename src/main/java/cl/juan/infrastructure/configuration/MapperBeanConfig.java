@@ -1,14 +1,14 @@
 package cl.juan.infrastructure.configuration;
 
-import cl.juan.infrastructure.adapter.outbound.rest.country.mapper.CountryMapper;
+import cl.juan.infrastructure.adapter.outbound.rest.country.mapper.CountryApiMapper;
 
 import javax.enterprise.context.ApplicationScoped;
 
 public class MapperBeanConfig {
 
     @ApplicationScoped
-    public CountryMapper countryMapper() {
-        return CountryMapper.INSTANCE;
+    public CountryApiMapper countryMapper() {
+        return CountryApiMapper.INSTANCE;
     }
 
 }

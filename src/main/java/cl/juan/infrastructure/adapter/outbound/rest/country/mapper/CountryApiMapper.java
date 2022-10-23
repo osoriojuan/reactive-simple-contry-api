@@ -12,15 +12,12 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper
-public interface CountryMapper {
-    CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
+public interface CountryApiMapper {
+    CountryApiMapper INSTANCE = Mappers.getMapper(CountryApiMapper.class);
 
-
-    //TODO MAP VALUES
-
-    @Mapping(target = "borders", ignore = true)
     @Mapping(source = "name.common", target = "commonName")
     @Mapping(source = "name.official", target = "officialName")
     @Mapping(source = "cca3", target = "abbreviation")
@@ -32,9 +29,9 @@ public interface CountryMapper {
     @Mapping(source = "flags.png", target = "flagUrl")
     @Mapping(source = "subregion", target = "subRegion")
     @Mapping(source = "currencies", target = "currencies")
+    @Mapping(source = "startOfWeek", target = "weekStartDay")
     @Mapping(source = "capital", target = "capitalName", qualifiedByName = "firstElementStrings")
     Country dtoToDomain(CountryDto dto);
-
 
     default List<String> mapLanguages(Languages value) {
         return new ArrayList<>(value.getValues().values());
@@ -46,8 +43,14 @@ public interface CountryMapper {
     }
 
     default List<Currency> map(Currencies value) {
-        //TODO MAP
-        return null;
+        if (value == null) return new ArrayList<>();
+        if (value.getValues() == null) return new ArrayList<>();
+        if (value.getValues().isEmpty()) return new ArrayList<>();
+
+        return value.getValues()
+                .entrySet()
+                .stream().map(entrySet -> new Currency(entrySet.getKey(), entrySet.getValue().getName()))
+                .collect(Collectors.toList());
     }
 
     private Object getFirstElementOrNull(List<?> values) {

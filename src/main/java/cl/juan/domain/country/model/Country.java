@@ -19,7 +19,7 @@ public class Country {
     String subRegion;
     List<String> languages;
     boolean landlocked;
-    List<Country> borders;
+    List<String> borders;
     long areaInKilometers;
     CitizenshipDenomination citizenshipDenomination;
     String urlMap;
@@ -27,4 +27,5 @@ public class Country {
     List<String> timezones;
     List<String> continents;
     String flagUrl;
+    String weekStartDay;
 }

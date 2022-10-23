@@ -47,4 +47,6 @@ public class CountryDto {
     private CapitalInfo capitalInfo;
     private PostalCode postalCode;
 
+
+
 }

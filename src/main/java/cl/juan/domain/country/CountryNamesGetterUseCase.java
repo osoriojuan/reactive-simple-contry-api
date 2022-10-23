@@ -4,6 +4,6 @@ import io.smallrye.mutiny.Uni;
 
 import java.util.List;
 
-public interface CountryCodesGetterUseCase {
+public interface CountryNamesGetterUseCase {
     Uni<List<String>> handle();
 }

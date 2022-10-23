@@ -1,14 +1,15 @@
 package cl.juan.infrastructure.configuration;
 
-import cl.juan.domain.country.CountryCodesGetterUseCase;
-import cl.juan.domain.country.usecase.CountryCodesGetter;
+import cl.juan.domain.country.CountryNamesGetterUseCase;
+import cl.juan.domain.country.port.CountryNamesGetterPort;
+import cl.juan.domain.country.usecase.CountryNamesGetter;
 
 import javax.enterprise.context.ApplicationScoped;
 
 public class UseCaseBeansConfig {
 
     @ApplicationScoped
-    public CountryCodesGetterUseCase countryCodesGetterUseCase() {
-        return new CountryCodesGetter();
+    public CountryNamesGetterUseCase countryCodesGetterUseCase(CountryNamesGetterPort countryNamesGetterPort) {
+        return new CountryNamesGetter(countryNamesGetterPort);
     }
 }

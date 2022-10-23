@@ -1,6 +1,9 @@
 package cl.juan.domain.country.model.details;
 
+import lombok.Value;
+
+@Value
 public class Currency {
-    private String code;
-    private String name;
+    String code;
+    String name;
 }
