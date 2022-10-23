@@ -1,13 +1,12 @@
 package cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.details;
 
-import cl.juan.domain.country.model.details.Currency;
-import io.quarkus.runtime.annotations.RegisterForReflection;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 @Setter
@@ -15,6 +14,19 @@ import java.util.Map;
 @ToString
 @NoArgsConstructor
 public class Currencies {
-    //TODO:  map this variable key
-    private Map<String, List<Currency>> currency;
+    private final Map<String, SingleCurrency> values = new HashMap<>();
+
+    @JsonAnySetter
+    public void setValue(final String property, final SingleCurrency value) {
+        values.put(property, value);
+    }
+
+    @Setter
+    @Getter
+    @ToString
+    @NoArgsConstructor
+    public static class SingleCurrency {
+        private String name;
+        private String symbol;
+    }
 }

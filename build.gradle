@@ -16,10 +16,10 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
     implementation 'io.quarkus:quarkus-rest-client-reactive-jackson:2.13.3.Final'
 
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
-
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'

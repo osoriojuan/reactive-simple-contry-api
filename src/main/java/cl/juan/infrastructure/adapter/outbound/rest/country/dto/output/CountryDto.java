@@ -1,10 +1,12 @@
 package cl.juan.infrastructure.adapter.outbound.rest.country.dto.output;
 
 import cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.details.*;
-import io.quarkus.runtime.annotations.RegisterForReflection;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 @Builder
 public class CountryDto {
     private Name name;
-    private ArrayList<String> tld;
+    private List<String> tld;
     private String cca2;
     private String ccn3;
     private String cca3;
@@ -22,23 +24,23 @@ public class CountryDto {
     private boolean unMember;
     private Currencies currencies;
     private Idd idd;
-    private ArrayList<String> capital;
-    private ArrayList<String> altSpellings;
+    private List<String> capital;
+    private List<String> altSpellings;
     private String region;
     private String subregion;
     private Languages languages;
-    private ArrayList<Double> latlng;
+    private List<Double> latlng;
     private boolean landlocked;
-    private ArrayList<String> borders;
-    private double area;
+    private List<String> borders;
+    private long area;
     private Demonyms demonyms;
     private String flag;
     private Maps maps;
     private int population;
     private String fifa;
     private Car car;
-    private ArrayList<String> timezones;
-    private ArrayList<String> continents;
+    private List<String> timezones;
+    private List<String> continents;
     private Flags flags;
     private CoatOfArms coatOfArms;
     private String startOfWeek;

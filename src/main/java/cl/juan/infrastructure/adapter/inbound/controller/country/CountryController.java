@@ -3,6 +3,7 @@ package cl.juan.infrastructure.adapter.inbound.controller.country;
 import cl.juan.domain.country.CountryCodesGetterUseCase;
 import cl.juan.infrastructure.adapter.outbound.rest.country.CountryClientResolver;
 import cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.CountryDto;
+import cl.juan.infrastructure.adapter.outbound.rest.country.mapper.CountryMapper;
 import io.quarkus.logging.Log;
 import io.smallrye.mutiny.Uni;
 import org.jboss.resteasy.reactive.RestResponse;
@@ -21,11 +22,14 @@ public class CountryController {
 
     private final CountryCodesGetterUseCase countryCodesGetterUseCase;
     private final CountryClientResolver countryClientResolver;
+    private final CountryMapper countryMapper;
 
     CountryController(CountryCodesGetterUseCase countryCodesGetterUseCase,
-                      CountryClientResolver countryClientResolver) {
+                      CountryClientResolver countryClientResolver,
+                      CountryMapper countryMapper) {
         this.countryCodesGetterUseCase = countryCodesGetterUseCase;
         this.countryClientResolver = countryClientResolver;
+        this.countryMapper = countryMapper;
     }
 
     @GET
@@ -41,8 +45,12 @@ public class CountryController {
     public Uni<RestResponse<List<CountryDto>>> getByName(@QueryParam("name") @DefaultValue("") String name) throws ExecutionException, InterruptedException {
         Log.info("Getting country by name controller...");
         return countryClientResolver.getFirstCountryByName(name)
-                .map(dto -> RestResponse.ResponseBuilder.ok(dto)
-                        .build());
+                .map(dto -> {
+                    Log.info("MAPPER: ");
+                    Log.info(countryMapper.dtoToDomain(dto.get(0)));
+                    return RestResponse.ResponseBuilder.ok(dto)
+                            .build();
+                });
 
     }
 }

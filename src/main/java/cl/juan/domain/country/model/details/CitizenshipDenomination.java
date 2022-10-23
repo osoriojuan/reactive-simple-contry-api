@@ -1,6 +1,10 @@
 package cl.juan.domain.country.model.details;
 
+
+import lombok.Value;
+
+@Value
 public class CitizenshipDenomination {
-    private String female;
-    private String male;
+    String female;
+    String male;
 }

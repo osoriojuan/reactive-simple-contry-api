@@ -1,10 +1,13 @@
 package cl.juan.infrastructure.adapter.outbound.rest.country.dto.output.details;
 
-import io.quarkus.runtime.annotations.RegisterForReflection;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Setter
 @Getter
@@ -12,6 +15,11 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Languages {
 
-    //TODO: map this variable key
-    private String spa;
+    private final Map<String, String> values = new HashMap<>();
+
+    @JsonAnySetter
+    public void setValue(final String property, final String value) {
+        values.put(property, value);
+    }
+
 }
